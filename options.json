@@ -1,0 +1,16 @@
+{
+  "sections": [{
+    "name": "Assets",
+    "inputs": [{
+        "title": "Initial Background",
+        "value": "img/bg.png",
+        "placeholder": "",
+        "inputClass": "",
+        "target": "bg1"
+      }]
+  }],
+  "property": {
+    "bg1": "img/bg.png",
+  },
+  "trackers": []
+}

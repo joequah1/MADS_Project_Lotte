@@ -1,0 +1,372 @@
+
+.video-container{position:relative;background:#000}.video-container-background{position:absolute;width:100%;height:100%;top:0;left:0;background:#000;opacity:.7}.video-container video{position:absolute;top:0;left:0}.cover-image,.ending-image{position:absolute;top:0;left:0;z-index:10}.clickthrough-container{position:absolute;cursor:pointer;width:100%;height:100%;top:0;left:0;z-index:8}.clickthrough-container img{width:25px;margin-bottom:-7px}.control-replay{position:absolute;top:0;right:0;width:32px;height:32px}.control-replay img{width:32px;height:32px;display:none;position:absolute;top:0;left:0;z-index:11}.special-control{position:absolute;top:50%;left:50%;width:32px;height:32px;margin-left:-16px;margin-top:-16px}.default-control-audio-container img,.default-control-play-container img,.special-control img{top:0;z-index:9;display:none;position:absolute}.special-control img{width:32px;height:32px;left:0}.default-control-play-container{width:32px;height:32px;position:absolute;bottom:5px;left:50%;margin-left:-9px;z-index:9}.default-control-bar-container{width:100%;height:65px;background:url(https://cdn.serving1.net/html5/images/media/video/rectangle.png) repeat-x;position:absolute;bottom:0;left:0;background-size:100%;z-index:9}.default-control-play-container img.dc-pause,.default-control-play-container img.dc-play{width:32px;height:32px;left:0}.default-control-audio-container{width:32px;height:32px;position:absolute;bottom:5px;left:50%;margin-left:40px;z-index:9}.default-control-audio-container img.dc-mute,.default-control-audio-container img.dc-unmute{width:32px;height:32px;left:0}.default-control-replay-container{width:32px;height:32px;position:absolute;bottom:5px;left:50%;margin-left:-60px;z-index:11}.default-control-replay-container span{background:url(https://cdn.richmediaads.com/html5/images/media/video/time.png);padding:7px 0px;border-radius:50px;color:#fff;position:absolute;font-size:16px;font-family:arial;width: 32px;height: 18px;text-align:center;}.default-control-replay-container img{width:32px;height:32px;display:none;position:absolute;top:0;left:0;z-index:11}.default-control-replay-container svg{width:32px;height:32px;position:absolute;top:0;left:0;z-index:9}svg{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.circle_animation{stroke-dasharray:88;stroke-dashoffset:88;transition:all 1s linear}#adBased .video-container{pointer-events:none}
+
+#default-control-play-container-1, #default-control-replay-container-1 {
+	display: none;
+}
+#default-control-audio-container-1 {
+	right: 10px;
+	left: auto;
+}
+
+.container {
+    width: 336px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video {
+    display: none;
+}
+
+.line {
+    border-left: 3px solid white;
+    height: 60%;
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.icons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.icons .click_popup {
+	cursor: pointer;
+	width: 52px;
+    height: 40px;
+    background: rgba(255,255,255, 0.5);
+}
+
+.icons .icon {
+	position: absolute;
+    width: 50px;
+    height: 75px;
+    bottom: 0;
+    left: 10%;
+    text-align: center;
+    display: none;
+}
+
+.icons .first {
+    height: 75px;
+    left: 13%;
+}
+.icons .first .line {
+	height: 39px;
+}
+
+.icons .second {
+	height: 90px;
+    left: 33%;
+}
+.icons .second .line {
+	height: 54px;
+}
+
+.icons .third {
+	height: 105px;
+    left: 55%;
+}
+.icons .third .line {
+	height: 69px;
+}
+
+.icons .forth {
+	height: 90px;
+    left: 75%;
+}
+.icons .forth .line {
+	height: 54px;
+}
+
+.popup {
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+.banner {
+	width: 336px;
+	height: 280px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	cursor: pointer;
+}
+.close {
+    font-size: 12px;
+	position: absolute;
+    z-index: 199999;
+    top: 250px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 10px;
+    left: 230px;
+    width: 90px;
+    cursor: pointer;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+}
+
+#ending-image {
+    cursor: pointer;
+    display: none;
+    width: 336px;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.slide-in-fwd-center {
+	-webkit-animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.jello-horizontal {
+	-webkit-animation: jello-horizontal 5s infinite;
+	        animation: jello-horizontal 5s infinite;
+}
+
+.slide-in-bottom {
+    -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-out-bottom {
+    -webkit-animation: slide-out-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: slide-out-bottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.fade-in {
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-10-12 15:54:7
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-fwd-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+            transform: translateZ(-1400px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+}
+./* ----------------------------------------------
+ * Generated by Animista on 2018-10-12 15:56:45
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation jello-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  15% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  20% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  25% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  32% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  37% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  15% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  20% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  25% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  32% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  37% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-10-16 12:3:0
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-10-16 12:32:24
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-out-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+    opacity: 0;
+  }
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-10-16 12:48:15
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation fade-in
+ * ----------------------------------------
+ */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
