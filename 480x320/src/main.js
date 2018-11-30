@@ -1,4 +1,3 @@
-/* global window */
 /* eslint-disable */
 import Mads from 'mads-custom';
 import './main.css';
@@ -14,7 +13,7 @@ class AdUnit extends Mads {
   render() {
     // console.log('data', this.data);
 
-    // this.custTracker = ['http://www.tracker.com?type={{rmatype}}'];
+    // this.custTracker = ['http://www.tracker.com?type={{rmatype}}&tt={{rmatt}}'];
 
     // this.tracker('CTR', 'test');
 
@@ -93,22 +92,29 @@ class AdUnit extends Mads {
     this.video = document.querySelector('.video');
     this.icons = document.querySelector('.icons');
 
-    setTimeout(() => {
-        this.orientation.style.display = 'none';
-    }, 2000)
+    if (this.data.showOrientation) {
+        setTimeout(() => {
+            this.orientation.style.display = 'none';
+        }, 2000)
 
-    setTimeout(() => {
+        setTimeout(() => {
+            this.video.style.display = 'block';
+            this.icons.style.display = 'block';
+            this.loadDelay();
+        }, 1000)
+    } else {
+        this.orientation.style.display = 'none';
         this.video.style.display = 'block';
         this.icons.style.display = 'block';
         this.loadDelay();
-    }, 1000)
-
+    }
   }
 
   loadDelay () {
-
+ 
     var param = {"w":480,"h":320,"fps":10,"frames":204,"length":20.417,"src":{"mp4":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.mp4","webm":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.webm","ogg":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.ogg","img_url":"https://rmarepo.richmediaads.com/2594/images/autoplay/j8okn/image_","audio_url":"https://rmarepo.richmediaads.com/2594/images/autoplay/j8okn/audio.mp3","file":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.mp4","size":0},"coverImage":{"src":"","action":0,"lpUrl":""},"endingImage":{"src":"","action":0,"lpUrl":""},"control":1,"autoplay":"1","clickthrough":{"txt":"Click Here","lpUrl":""},"extTrackers":{"ytPlay":"","enabled":true}};
-    
+    // var param = {"w":336,"h":280,"fps":10,"frames":204,"length":20.417,"src":{"mp4":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.mp4","webm":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.webm","ogg":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.ogg","img_url":"https://rmarepo.richmediaads.com/2594/images/autoplay/2e48w1u/image_","audio_url":"https://rmarepo.richmediaads.com/2594/images/autoplay/2e48w1u/audio.mp3","file":"https://rmarepo.richmediaads.com/2594/videos/iLotte_Video_20s.mp4","size":0},"coverImage":{"src":"","action":0,"lpUrl":""},"endingImage":{"src":"","action":0,"lpUrl":""},"control":1,"autoplay":"1","clickthrough":{"txt":"Click Here","lpUrl":""},"extTrackers":{"ytPlay":"","enabled":true}};
+
     this.endImage = document.getElementById('ending-image');
     this.ended = false;
     this.video = new Video({
@@ -149,7 +155,7 @@ class AdUnit extends Mads {
 
     this.endImage.addEventListener('click', () => {
         this.linkOpener(this.data.clickthrough_one);
-        this.tracker('E', 'endimg_clickthrough');
+        this.tracker('CTR', 'endimg_clickthrough');
     })
 
     let popup = document.querySelector('.popup');
@@ -200,19 +206,19 @@ class AdUnit extends Mads {
 
     banner.one.addEventListener('click', () => {
         this.linkOpener(this.data.clickthrough_one);
-        this.tracker('E', 'clickthrough_one');
+        this.tracker('CTR', 'clickthrough_one');
     })
     banner.two.addEventListener('click', () => {
         this.linkOpener(this.data.clickthrough_two);
-        this.tracker('E', 'clickthrough_two');
+        this.tracker('CTR', 'clickthrough_two');
     })
     banner.three.addEventListener('click', () => {
         this.linkOpener(this.data.clickthrough_three);
-        this.tracker('E', 'clickthrough_three');
+        this.tracker('CTR', 'clickthrough_three');
     })
     banner.four.addEventListener('click', () => {
         this.linkOpener(this.data.clickthrough_four);
-        this.tracker('E', 'clickthrough_four');
+        this.tracker('CTR', 'clickthrough_four');
     })
   }
 
@@ -234,8 +240,8 @@ class AdUnit extends Mads {
 
   listen (options) {
     var receiveMessage = function (event) {
-        console.log('receiveMessage')
-        console.log(event)
+        // console.log('receiveMessage')
+        // console.log(event)
         options.callback(event.data);
     }
     window.addEventListener("message", receiveMessage, false);

@@ -8,10 +8,9 @@
 	right: 10px;
 	left: auto;
 }
-
 .container {
-    width: 336px;
-    height: 280px;
+    width: 480px;
+    height: 320px;
     position: relative;
     overflow: hidden;
 }
@@ -80,7 +79,7 @@
 
 .icons .forth {
 	height: 90px;
-    left: 75%;
+    left: 80%;
 }
 .icons .forth .line {
 	height: 54px;
@@ -94,8 +93,8 @@
     display: none;
 }
 .banner {
-	width: 336px;
-	height: 280px;
+	width: 480px;
+	height: 320px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -103,17 +102,16 @@
 	cursor: pointer;
 }
 .close {
-    font-size: 12px;
 	position: absolute;
     z-index: 199999;
-    top: 250px;
+    top: 285px;
     color: white;
     background: rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding: 5px 5px;
+    padding: 5px 10px;
     border-radius: 10px;
-    left: 230px;
-    width: 90px;
+    left: 330px;
+    width: 125px;
     cursor: pointer;
     -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
             animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -123,8 +121,8 @@
 #ending-image {
     cursor: pointer;
     display: none;
-    width: 336px;
-    height: 280px;
+    width: 480px;
+    height: 320px;
     position: absolute;
     top: 0;
     left: 0;

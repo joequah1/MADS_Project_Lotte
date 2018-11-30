@@ -188,7 +188,8 @@ export default class Video {
             this.videoState = 1;
             /* tracker */
             this.tracker({
-                type: 'video_play'
+                type: 'video_play',
+                tt : ''
             });
 
             this.playTimeTracking = setInterval(() =>  {
@@ -204,7 +205,8 @@ export default class Video {
 
                 /* tracker */
                 this.tracker({
-                    type: 'video_pause'
+                    type: 'video_pause',
+                    tt : ''
                 });
             }
         });
@@ -214,7 +216,8 @@ export default class Video {
             this.videoState = 3;
             /* tracker */
             this.tracker({
-                type: 'video_play_100'
+                type: 'video_play_100',
+                tt : ''
             });
             /* ending image */
             this.eventsEndingImage();
@@ -468,7 +471,8 @@ export default class Video {
 
                 /* tracker */
                 this.tracker({
-                    type: 'video_unmute'
+                    type: 'video_unmute',
+                    tt : ''
                 });
 
                 /* canvas switching */
@@ -612,7 +616,8 @@ export default class Video {
             this.tracked.push('video_play_100');
             /* tracker */
             this.tracker({
-                type: 'video_play_100'
+                type: 'video_play_100',
+                tt : ''
             });
             /* stop play time tracking */
             clearInterval(this.playTimeTracking)
@@ -621,21 +626,24 @@ export default class Video {
             this.tracked.push('video_play_75');
             /* tracker */
             this.tracker({
-                type: 'video_play_75'
+                type: 'video_play_75',
+                tt : ''
             });
         }
         else if (currentTime >= duration * 0.5 && this.tracked.indexOf('video_play_50') < 0) {
             this.tracked.push('video_play_50');
             /* tracker */
             this.tracker({
-                type: 'video_play_50'
+                type: 'video_play_50',
+                tt : ''
             });
         }
         else if (currentTime >= duration * 0.25 && this.tracked.indexOf('video_play_25') < 0) {
             this.tracked.push('video_play_25');
             /* tracker */
             this.tracker({
-                type: 'video_play_25'
+                type: 'video_play_25',
+                tt : ''
             });
         }
     }

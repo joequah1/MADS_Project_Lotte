@@ -1,7 +1,8 @@
 json_data = {
   "width":"480",
   "height":"320",
-  "orientation":"img/orientation.gif",
+  "showOrientation":false,
+  "orientation":"img/orientation480x320.gif",
   "icon_one":"img/icons/first_anniversary_icon.png",
   "icon_two":"img/icons/sport_festive_icon.png",
   "icon_three":"img/icons/global_100_icon.png",

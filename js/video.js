@@ -22,6 +22,18 @@ export default class Video {
         this.playVideo = () => {
             this.video.play()
         }
+        this.getCurrentTime = () => {
+            return this.video.currentTime;
+        }
+        this.getDuration = () => {
+            return this.video.duration;
+        }
+
+        this.quality = 'low';
+
+        if (typeof options.quality != 'undefined') {
+            this.quality = options.quality;
+        }
 
         /* variable which need to be manipulated for freeflow */
         this.videoContainer = document.getElementById('video-container-' + this.id);
@@ -65,6 +77,8 @@ export default class Video {
         if (this.app.isMobile() && this.autoplay != 0) {
 
             if ( this.video != null ) {
+                /* hide the html video */
+                this.video.style.display = 'none'
                 /* render mobile video */
                 this.mobile();
                 // this.mobile({
@@ -105,11 +119,11 @@ export default class Video {
 
     loadVideo () {
         var mp4 = document.createElement('source')
-        mp4.src = this.data.src.mp4.replace('.mp4', '_low.mp4')
+        mp4.src = this.data.src.mp4.replace('.mp4', '_' + this.quality + '.mp4')
         var webm = document.createElement('source')
-        webm.src = this.data.src.mp4.replace('.webm', '_low.webm')
+        webm.src = this.data.src.mp4.replace('.webm', '_' + this.quality + '.webm')
         var ogg = document.createElement('source')
-        ogg.src = this.data.src.mp4.replace('.ogg', '_low.ogg')
+        ogg.src = this.data.src.mp4.replace('.ogg', '_' + this.quality + '.ogg')
 
         mp4.onerror = this.retarget.bind(this)
 
@@ -174,7 +188,8 @@ export default class Video {
             this.videoState = 1;
             /* tracker */
             this.tracker({
-                type: 'video_play'
+                type: 'video_play',
+                tt : ''
             });
 
             this.playTimeTracking = setInterval(() =>  {
@@ -190,7 +205,8 @@ export default class Video {
 
                 /* tracker */
                 this.tracker({
-                    type: 'video_pause'
+                    type: 'video_pause',
+                    tt : ''
                 });
             }
         });
@@ -200,7 +216,8 @@ export default class Video {
             this.videoState = 3;
             /* tracker */
             this.tracker({
-                type: 'video_play_100'
+                type: 'video_play_100',
+                tt : ''
             });
             /* ending image */
             this.eventsEndingImage();
@@ -434,6 +451,10 @@ export default class Video {
                 setTimeout (() =>  {
                     this.control.replay.querySelector('.dc-replay').style.display = 'block';
                 }, 1000)
+
+                if (typeof this.callbackEvents.onPlaying != 'undefined') {
+                    this.callbackEvents.onEnded();
+                }
             });
 
             /* control events */
@@ -450,7 +471,8 @@ export default class Video {
 
                 /* tracker */
                 this.tracker({
-                    type: 'video_unmute'
+                    type: 'video_unmute',
+                    tt : ''
                 });
 
                 /* canvas switching */
@@ -594,7 +616,8 @@ export default class Video {
             this.tracked.push('video_play_100');
             /* tracker */
             this.tracker({
-                type: 'video_play_100'
+                type: 'video_play_100',
+                tt : ''
             });
             /* stop play time tracking */
             clearInterval(this.playTimeTracking)
@@ -603,21 +626,24 @@ export default class Video {
             this.tracked.push('video_play_75');
             /* tracker */
             this.tracker({
-                type: 'video_play_75'
+                type: 'video_play_75',
+                tt : ''
             });
         }
         else if (currentTime >= duration * 0.5 && this.tracked.indexOf('video_play_50') < 0) {
             this.tracked.push('video_play_50');
             /* tracker */
             this.tracker({
-                type: 'video_play_50'
+                type: 'video_play_50',
+                tt : ''
             });
         }
         else if (currentTime >= duration * 0.25 && this.tracked.indexOf('video_play_25') < 0) {
             this.tracked.push('video_play_25');
             /* tracker */
             this.tracker({
-                type: 'video_play_25'
+                type: 'video_play_25',
+                tt : ''
             });
         }
     }
